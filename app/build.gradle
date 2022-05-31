@@ -36,7 +36,10 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.9.0'
 
     // Okhttp
-    implementation 'com.squareup.okhttp3:okhttp:4.2.0'
+    implementation(platform("com.squareup.okhttp3:okhttp-bom:4.9.3"))
+    implementation 'com.squareup.okhttp3:okhttp'
+    implementation 'com.squareup.okhttp3:logging-interceptor'
+
 
     // Retrofit
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'

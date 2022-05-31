@@ -66,13 +66,10 @@ public class ResponseData {
 
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder("ResponseData{\n");
-        sb.append("now=").append(now);
-        sb.append(", \nnowDt='").append(nowDt).append('\'');
-        sb.append(", \ninfo=").append(info);
-        sb.append(", \nfact=").append(fact);
-        sb.append(", \nforecast=").append(forecast);
-        sb.append('}');
-        return sb.toString();
+        String sb = info.toString() +
+                "\nПрогноз погоды на " + forecast.getDate() +
+                "\n" + fact +
+                "\n" + forecast;
+        return sb;
     }
 }

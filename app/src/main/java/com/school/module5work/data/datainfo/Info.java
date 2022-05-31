@@ -13,11 +13,8 @@ public class Info {
 
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder("Info{");
-        sb.append("\n\t\tlat=").append(lat);
-        sb.append(", \n\t\tlon=").append(lon);
-        sb.append('}');
-        return sb.toString();
+        String sb = "Город: Екатеринбург";
+        return sb;
     }
 
     public Double getLat() {

@@ -100,21 +100,15 @@ public class Forecast {
     @Expose
     private String moonText;
     @SerializedName("parts")
-    @Expose(deserialize = false, serialize = false)
+    @Expose
     private JsonArray parts;
 
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder("Forecast{");
-        sb.append("date='").append(date).append('\'');
-        sb.append(", dateTs=").append(dateTs);
-        sb.append(", week=").append(week);
-        sb.append(", sunrise='").append(sunrise).append('\'');
-        sb.append(", sunset='").append(sunset).append('\'');
-        sb.append(", moonCode=").append(moonCode);
-        sb.append(", moonText='").append(moonText).append('\'');
-        sb.append(", parts=").append(parts);
-        sb.append('}');
+        final StringBuilder sb = new StringBuilder();
+        sb.append("Восход в ").append(sunrise);
+        sb.append(", заход в ").append(sunset);
+//        sb.append("\nparts=").append(parts);
         return sb.toString();
     }
 }

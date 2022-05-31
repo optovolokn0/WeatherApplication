@@ -1,5 +1,7 @@
 package com.school.module5work.data.datainfo;
 
+import androidx.annotation.NonNull;
+
 import com.google.gson.annotations.SerializedName;
 
 public class Fact {
@@ -58,7 +60,67 @@ public class Fact {
     }
 
     public String getCondition() {
-        return condition;
+        // Перевод фразы
+        // clear — ясно.
+        // partly-cloudy — малооблачно.
+        // cloudy — облачно с прояснениями.
+        // overcast — пасмурно.
+        // drizzle — морось.
+        // light-rain — небольшой дождь.
+        // rain — дождь.
+        // moderate-rain — умеренно сильный дождь.
+        // heavy-rain — сильный дождь.
+        // continuous-heavy-rain — длительный сильный дождь.
+        // showers — ливень.
+        // wet-snow — дождь со снегом.
+        // light-snow — небольшой снег.
+        // snow — снег.
+        // snow-showers — снегопад.
+        // hail — град.
+        // thunderstorm — гроза.
+        // thunderstorm-with-rain — дождь с грозой.
+        // thunderstorm-with-hail — гроза с градом.
+
+        if (this.condition.equals("overcast"))
+            this.condition = "Пасмурно";
+        if (this.condition.equals("clear"))
+            this.condition = "Ясно";
+        if (this.condition.equals("partly-cloudy"))
+            this.condition = "Малооблачно";
+        if (this.condition.equals("cloudy"))
+            this.condition = "Облачно с прояснениями";
+        if (this.condition.equals("drizzle"))
+            this.condition = "Морось";
+        if (this.condition.equals("light-rain"))
+            this.condition = "Небольшой дождь";
+        if (this.condition.equals("rain"))
+            this.condition = "Дождь";
+        if (this.condition.equals("moderate-rain"))
+            this.condition = "Умеренно сильный дождь";
+        if (this.condition.equals("heavy-rain"))
+            this.condition = "Сильный дождь";
+        if (this.condition.equals("continuous-heavy-rain"))
+            this.condition = "Длительный сильный дождь";
+        if (this.condition.equals("showers"))
+            this.condition = "Ливень";
+        if (this.condition.equals("wet-snow"))
+            this.condition = "Дождь со снегом";
+        if (this.condition.equals("light-snow"))
+            this.condition = "Небольшой снег";
+        if (this.condition.equals("snow"))
+            this.condition = "Снег";
+        if (this.condition.equals("snow-showers"))
+            this.condition = "Снегопад";
+        if (this.condition.equals("hail"))
+            this.condition = "Град";
+        if (this.condition.equals("thunderstorm"))
+            this.condition = "Гроза";
+        if (this.condition.equals("thunderstorm-with-rain"))
+            this.condition = "Дождь с грозой";
+        if (this.condition.equals("thunderstorm-with-hail"))
+            this.condition = "Гроза с градом";
+
+        return this.condition;
     }
 
     public Fact setCondition(String condition) {
@@ -85,6 +147,26 @@ public class Fact {
     }
 
     public String getWindDir() {
+        // Рсшифровка фразы
+        //«n» — северное.
+        //«ne» — северо-восточное.
+        //«e» — восточное.
+        //«se» — юго-восточное.
+        //«s» — южное.
+        //«sw» — юго-западное.
+        //«w» — западное.
+        //«с» — штиль.
+
+        if (this.windDir.equals("nw")) this.windDir = "северо-западное";
+        if (this.windDir.equals("ne")) this.windDir = "северо-восточное";
+        if (this.windDir.equals("e")) this.windDir = "восточное";
+        if (this.windDir.equals("se")) this.windDir = "юго-восточное";
+        if (this.windDir.equals("sw")) this.windDir = "юго-западное";
+        if (this.windDir.equals("w")) this.windDir = "западное";
+        if (this.windDir.equals("c")) this.windDir = "штиль";
+        if (this.windDir.equals("n")) this.windDir = "северное";
+        if (this.windDir.equals("s")) this.windDir = "южное";
+
         return windDir;
     }
 
@@ -159,24 +241,16 @@ public class Fact {
     @SerializedName("obs_time")
     private Long obsTime;
 
+    @NonNull
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder("Fact{");
-        sb.append("\n\t\ttemp=").append(temp);
-        sb.append(", \n\t\tfeelsLike=").append(feelsLike);
-        sb.append(", \n\t\ticon='").append(icon).append('\'');
-        sb.append(", \n\t\tcondition='").append(condition).append('\'');
-        sb.append(", \n\t\twindSpeed=").append(windSpeed);
-        sb.append(", \n\t\twindGust=").append(windGust);
-        sb.append(", \n\t\twindDir='").append(windDir).append('\'');
-        sb.append(", \n\t\tpressureMm=").append(pressureMm);
-        sb.append(", \n\t\tpressurePa=").append(pressurePa);
-        sb.append(", \n\t\thumidity=").append(humidity);
-        sb.append(", \n\t\tdaytime='").append(daytime).append('\'');
-        sb.append(", \n\t\tpolar=").append(polar);
-        sb.append(", \n\t\tseason='").append(season).append('\'');
-        sb.append(", \n\t\tobsTime=").append(obsTime);
-        sb.append('}');
-        return sb.toString();
+        return "Температура " + temp + "°C" +
+                "\n" + getCondition() +
+                "\nОщущается как " + feelsLike + "°C" +
+                "\nСкорость ветра " + windSpeed + " м/с" +
+                "\nС порывами до " + windGust + " м/с" +
+                "\nНаправление ветра " + getWindDir() +
+                "\nДавление " + pressureMm + " мм.рт.ст. (" + pressurePa + " ГПа)" +
+                "\nВлажность " + humidity + '%';
     }
 }
