@@ -5,6 +5,7 @@
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
 
+	android:background="@drawable/my_gradient_undo"
 	android:padding="20dp"
 	tools:context=".presentation.OkhttpActivity">
 
@@ -25,8 +26,11 @@
 				android:id="@+id/tw_weather12"
 				android:layout_width="match_parent"
 				android:layout_height="match_parent"
+				android:fontFamily="sans-serif-medium"
+				android:lineSpacingExtra="8sp"
+				android:textAlignment="center"
 				android:textColor="#000000"
-				android:textSize="18sp" />
+				android:textSize="20sp" />
 		</LinearLayout>
 	</ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
